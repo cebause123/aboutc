@@ -139,3 +139,6 @@ git clone +address
 2026/08/14
 21:47 | 
 --record the day for firstly using code partern,add after add then convenient
+
+2026/09/09
+20:39:06 | modifyied in vscode
