@@ -1,5 +1,6 @@
 # Basic Git Commands
 ## 一、root
+alias git-log="..."定义快捷片段
 >git-log : git log --pretty=oneline --all --graph --abbrev-commit
 
 >git status
@@ -47,19 +48,23 @@ vi file.txt修改文件，i键修改模式，改完esc+:wq退出
 
 
 ### 3.分支
-git branch 加分支名 创建分支
+git branch :ls every branch
+git branch 加分支名: 创建分支
 git branch -d删除分支
 git branch -D
-git checkout将路径转换到该分支
+git checkout将路径转换到该分支(git switch加分支名亦可)
 ==git checkout -b 加分支名可以直接创建分支并将路径转换到该分支==
 ### 4.合并
 git merge 加分支名dev1  合并分支   esc : wqj
+（merge之前要先切换到目标合并分支）
 之后有冲突就手动在记事本改成需要的，再add . commit	
                                
 master分支
 develop分支
 feature分支
 hotfix分支改bug
+***
+![rebase](image.png)
 ***
 ### 5.ignore
 **仅作用于工作区**
