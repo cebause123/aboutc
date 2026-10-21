@@ -29,10 +29,11 @@ gets()无法检查数组是否装得下输入行
 char arr[12];
     puts("enter a string");
     fgets(arr,12,stdin);
-    puts(arr);
-    fputs(arr,stdout);
+    puts(arr);//end with a '\n'
+    fputs(arr,stdout);//no '\n'
     puts("enter another");
-    fgets(arr,12,stdin);
+    fgets(arr,12,stdin);//only 11 character can be read
+    //the 12th one is '\0'
     puts(arr);
     fputs(arr,stdout);
     puts("done");
@@ -69,6 +70,7 @@ int main()
     return 0;   
 }
 ```
+output="I AM A STUDENT"
 ### (2)
 ```c
 #include<stdio.h>
