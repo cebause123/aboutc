@@ -61,12 +61,45 @@ generate .s file ==disass== to generate .o file
 link to a executive file called test
 ```
 
+#### 条件编译
+`gcc -o test test.c -D DEBUG`
+`gcc -o test test.c -D Max=100`
+```c
+#include<stdio.h>
+#ifndef DEBUG
+#error "do somthing to driver"
+#warning "do somthing to driver"
+#endif
+
+#ifdef DEBUG
+void what()
+{
+    printf("what\n");
+}
+#endif
+int main()
+{
+    #ifdef DEBUG
+    what();
+    #endif
+}
+```
+***
+
+
+
+
+
+
+
+
+
 ### preprocess
 #### conditional process
 
 #### define
 
-##### predefine
+##### 1.predefine
 ```c
 #include<stdio.h> 
 int main()
@@ -81,7 +114,7 @@ int main()
 ```
 2026/10/22
 19:03:49 | 
-##### define const varies
+##### 2.define const varies
 #define representative represented
 ```c
 #define MESSAGE printf("%s %d %s %s\n",\
@@ -91,9 +124,31 @@ __DATE__,\
 __TIME__)
 ```
 <mark>while define,use \ to link neighbor line</mark>
-<mark>without ; in define is recommended</mark>
+<mark>without ';' in define is recommended</mark>
 
-##### define macro
+**==实战可用==**
+```c
+#include<stdio.h>
+#define LOG(x) printf("%s %s %d %s is %d\n",\
+                __FUNCTION__\
+                __FILE__\
+                __LINE__\
+                #x,x)
+int main()
+{
+    int d1=100;
+    int d2=200;
+    LOG(d1);
+    LOG(d2);
+    return 0;
+}
+```
+```
+output:
+main test.c 8 d1 is 100
+main test.c 9 d2 is 200
+```
+##### 3.define macro
 #define name(parameter-list) stuff
 <mark>no space between name and parameter </mark>
 ```c
@@ -110,7 +165,7 @@ int main()
 ==using SQUARE(x) (x)*(x)
 or input SQUARE(a+2) output will be a+2*a+2=32 instead of 144==
 
-##### macro parameter with side-effect
+##### 4.macro parameter with side-effect
 this parameter appear more than one time
 ```c
 int a=10;
@@ -151,8 +206,11 @@ int main()
 <mark>macro can't do recursion or debugging</mark>
 
 #### #&##
+
+##### 1.#
 ```c
 #include<stdio.h>
+#define PRINT(val,format) printf("the value of %s is " format "\n",#val,val)
 #define PRINT(val,format) printf("the value of " #val " is " format "\n",val)
 int main()
 {
@@ -163,9 +221,11 @@ int main()
     return 0;
  }
 ```
+two ways to define 
 `#val=="val" in PRINT`
 
 ***
+##### 2.##
 ```c
 #include<stdio.h>
 #define GENERATE_MAX(type) type max_##type(type x,type y)\
@@ -184,8 +244,29 @@ int main()
  } 
 ```
 
-#### #undef
+#### common command of preprocess
+
 #undef NAME:cancel the define of the macro
+```c
+#define OK 10
+#undef OK
+#define OK 11
+```
+
+```c
+#ifndef HEAD_NAME
+#define HEAD_NAME
+#endif
+```
+```c
+#ifdef condition1
+//code1
+#elsif condition2
+//code2
+#else
+//code3
+#endif
+```
 
 
 

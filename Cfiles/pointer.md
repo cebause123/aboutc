@@ -20,7 +20,7 @@ int main()
   return 0;
 }
 ```
-**对下面代码的解释：str是一个指向占四位的数据i的指针，而ps和pc分别是指向该数据低位两位和一位的指针。通过改变pc指针指向的i值最低位，即最低位变为00000101。可以看到，引起的i变化，导致了str和ps指针解引用的变化**
+**对下面代码的解释：str是一个指向占四位的数据i的指针，而ps和pc分别是指向该数据低位两位和一位的指针。通过改变pc指针指向的i值最低位，即最低位的字节变为0000_0101。可以看到，引起的i变化，导致了str和ps指针解引用的变化**
 ```c
 #include<stdio.h>
 int main()
@@ -91,6 +91,7 @@ int * str;
 ==instead:
 str=&i;==
 **让str指针指向i**
+
 ## 2.array&pointer
 >date+2==&date[2]
 *(date+2)==date[2]
@@ -134,6 +135,8 @@ int main()
 }
 ```
 
+`output:100 100 300 / 100 200 300 / 200 200 301`
+
 ```c
 #include<stdio.h>
 #include<ctype.h>
@@ -159,3 +162,49 @@ int lac[4][2];
 |:--:|:-:|:--:|
 ||是占用一个int大小的地址| 是占用两个int大小的地址|
 |*|存储在lac[0][0]的值|*(&lac[0])=lac[0]=&lac[0][0]，lac[0][0]的地址 |
+
+<mark>classic example</mark>
+**p指针指向一个包含4个int的数组的地址，就是等于号后面的arr=&arr[0]**
+
+```c
+#include<stdio.h>
+int main()
+{
+    int arr[3][4]={{1,2,3,10},{4,5,6,11},{7,8,9,12}};
+    int(*p)[4]=arr;
+    for(int i=0;i<3;i++){
+        for(int j=0;j<4;j++)
+        {
+    printf("%d ",*(*(p+i)+j));
+        }
+        printf("\n");
+    }
+    return 0;
+}
+```
+```
+output:
+1 2 3 10
+4 5 6 11
+7 8 9 12
+```
+
+
+
+
+
+## string&pointer
+```c
+#include<stdio.h>
+int main()
+{
+    char string[]="hello world";
+    char* p=string;
+    printf("%s\n",p);
+    printf("%s\n",p+7);
+    printf("%s\n",string);
+    printf("%s\n",string+7);
+    return 0;
+}
+```
+`same output:hello world/orld`

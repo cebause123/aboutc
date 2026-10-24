@@ -57,4 +57,47 @@ int main()
 - 栈区：局部变量，函数参数
 - 堆区：动态内存管理malloc,calloc
 - 静态区：全局变量，静态变量
-  
+
+
+## 动态分配内存
+>malloc
+>>return void ,so usually use (int*)mallaoc
+
+
+```c
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int *p;
+    p=(int*)malloc(4*sizeof(int));
+    p[0]=12;
+    p[1]=3;
+    printf("%d\n",p[0]+p[1]);
+    free(p);
+    return 0;
+}
+```
+
+```c
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int*p;
+    int num,i;
+    int sum=0;
+    printf("enter the quatity""you wanna enter");
+    scanf("%d",&num);
+    p=(int*)malloc(num*sizeof(int));
+    for(i=0;i<num;i++)
+    {
+        scanf("%d",p+i);
+        sum+=p[i];
+    }
+    printf("average is %d",sum/num);
+    free(p);
+    return 0;
+}
+```
+
