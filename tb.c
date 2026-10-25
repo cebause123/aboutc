@@ -1,10 +1,20 @@
 #include<stdio.h>
-#define PRINT(val,format) printf("the value of %s is " format "\n",#val,val)
+union abc   
+{
+    int a;
+    char b;
+};
 int main()
 {
-    int a=10;
-    PRINT(a,"%d");
-    float fl =3.4f;
-    PRINT(fl,"%.2f");
-    return 0;
+    union abc c=
+    {
+        .b=1
+    };
+ c.a=0x01;
+ if(c.b==0x01)
+ {
+    printf("little endian\n");
+ }
+ printf("%d %d\n",c.a,c.b);
+ return 0;
  }
