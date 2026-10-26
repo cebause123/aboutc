@@ -1,7 +1,7 @@
 # 一.static
 ## 1.作用
 - 修饰局部变量
-- 修饰全局变量，==可以跨文件使用==
+- 修饰全局变量，==不可以跨文件使用==
 - 修饰函数
 ```c
 #include<stdio.h>
@@ -51,7 +51,10 @@ int main()
     return 0;
 }
 
-**报错**
+**<span style="color:red">error</span>**
+### (3)
+`extern "C"`
+用c++的编译器按照c的规则编译
 
 # 三、内存
 - 栈区：局部变量，函数参数
@@ -61,7 +64,7 @@ int main()
 
 ## 动态分配内存
 >malloc
->>return void ,so usually use (int*)mallaoc
+>>return void ,so usually use (int*)malloc
 
 
 ```c
@@ -100,4 +103,16 @@ int main()
     return 0;
 }
 ```
+# 四、const
+>const int a=10;
+int const a=10;
+
+==有了const不用每次都读取内存里面a的值==
+
+## const修饰指针变量
+const int * a; ==const near a,(*a)不能变==
+int const * b; ==const near b,(*b)不能变==
+int * const c; ==**const near c,c指针变量不能变，即指向的地址不能变**==
+const int * const d;
+
 
