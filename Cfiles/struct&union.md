@@ -28,6 +28,35 @@ struct abc {
     int a;
     char b;
 }__attribute__((packed))//不用对齐
+
+```
+在函数里面调用struct结构体
+```c
+#include<stdio.h>
+struct abc {
+    int a;
+    int b;
+    int c;
+};
+int func(struct abc *p,int b[])
+{
+    printf("%d %d %d\n",p->a,p->b,(*p).c);
+    printf("%d %d\n",b[0],b[1]);
+    return 0;
+}
+int main()
+{
+    int ret=0;
+    struct abc c=
+    {
+        .a=1,
+        .b=2,
+        .c=3
+    };
+    int b[2]={4,5};
+    ret =func(&c,b);
+    return 0;
+ }
 ```
 
 ## union联合体
