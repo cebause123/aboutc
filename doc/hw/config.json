@@ -1,0 +1,50 @@
+{
+  "hardware_config": {
+    "type": "custom",
+    "language": "verilog",
+    "vendor_id": "anlogic",
+    "vendor_name": "安路科技",
+    "chip_series": "PH1P",
+    "chip_device": "PH1P35MDG324",
+    "package_code": "LFBGA324",
+    "package_label": "LFBGA324",
+    "full_part_number": "PH1P35MDG324",
+    "chip_resources": {
+      "bram_kb": 2160,
+      "lut4_approx": 38189,
+      "dsp_blocks": 40,
+      "io_banks": 1
+    },
+    "board_id": "",
+    "board_name": "安路科技 · PH1P · PH1P35MDG324 · LFBGA324",
+    "toolchain": [
+      "td"
+    ],
+    "uploads": {
+      "boardInfo": null,
+      "pinmap": null,
+      "schematic": null,
+      "constraints": null,
+      "recommend": null
+    },
+    "packagedOnly": true,
+    "hideLegacy": true,
+    "status": "complete",
+    "chip_confirmed": false,
+    "package_options": [
+      {
+        "package_code": "LFBGA324",
+        "pins": [],
+        "pin_count": 324,
+        "package_family": "LFBGA",
+        "package_size_mm": null,
+        "ball_pitch_mm": null,
+        "source": "Anlogic official product selection table",
+        "label": "LFBGA324"
+      }
+    ],
+    "schema": "iccoder.hardware_config.v2",
+    "version": "2.0",
+    "updated_at": "2026-10-31T13:59:36.408Z"
+  }
+}

@@ -170,7 +170,71 @@ int main()
 #include<unordered_map>
 #include<unordered_set>
 ```
-  
+## bitset
+```cpp
+#include<iostream>
+#include<bitset>
+using namespace std;
+int main()
+{
+    bitset <5> b(19);//b现在为5位二进制
+    bitset <5> a("11");//a的低二位为11
+    cout<<b<<endl;
+    cout<<a<<endl;
+    for(int i=0;i<b.size();i++){
+        cout<<b[i];
+    }cout<<endl;
+    cout<<b.any()<<endl;//存在1
+    cout<<b.none()<<endl;//不存在1
+    cout<<b.count()<<endl;//几个1
+    for(int i=0;i<b.size();i++){
+    cout<<b.test(i);//下标为i的元素是否为1
+    }cout<<endl;
+    cout<<"1"<<b<<endl;
+    cout<<b.flip(1)<<endl;//翻转下标为1的元素
+    cout<<"2"<<b<<endl;
+    cout<<b.flip()<<endl;//翻转全部元素
+    cout<<"3"<<b<<endl;
+    //b.reset&b.reset(i)
+    unsigned long c=b.to_ulong();//c变为b的十进制
+    return 0;
+}
+int main()
+{
+    string m="0111010";
+    bitset <5> b(m,0,5);//01110,NOTICE!!!
+    cout<<b<<endl;
+    return 0;
+}
+```
+
+## sort(排序)
+```cpp
+#include<iostream>
+#include<vector>
+#include<algorithm>//sort
+using namespace std;
+int main()
+{
+    vector <int> b(10);
+    for(int i=0;i<10;i++){
+        b[i]=10-i;
+    }
+    for(int i=0;i<10;i++){
+        cout<<b[i]<<" ";
+    }
+    sort(b.begin(),b.end());
+    for(int i=0;i<10;i++){
+        cout<<b[i]<<" ";
+    }
+    return 0;
+}
+```
+>output
+>>10 9 8 7 6 5 4 3 2 1
+1 2 3 4 5 6 7 8 9 10
+
+
 
 
 
