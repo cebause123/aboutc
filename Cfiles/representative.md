@@ -98,3 +98,67 @@ int lines=0;
     return 0;
 }
 ```
+## 4.进制转换
+```c
+#include<stdio.h>
+/*
+void detobi(int n)
+{
+    if(n>0)
+    {
+        detobi(n/2);
+        printf("%d",n%2);    
+    }
+}
+*/
+void detohex(int n)
+{
+    if(n>0)
+    {
+        detohex(n/16);
+        if(n%16>9)
+        {
+            int m=n%16;
+
+            switch (m)
+            {
+            case 10:
+                printf("A");
+                break;
+            case 11:
+                printf("B");
+                break;
+            case 12:
+                printf("C");
+                break;
+            case 13:
+                printf("D");
+                break;
+            case 14:
+                printf("E");
+                break;
+            case 15:
+                printf("F");
+                break;
+            default:
+                break;
+            }
+        }
+        else
+        {
+            printf("%d",n%16);
+        }
+    }
+}
+int main()
+{
+    int num;
+    scanf("%d",&num);
+    detohex(num);
+    return 0;
+}
+```
+
+
+
+

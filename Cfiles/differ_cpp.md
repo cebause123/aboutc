@@ -234,14 +234,123 @@ int main()
 >>10 9 8 7 6 5 4 3 2 1
 1 2 3 4 5 6 7 8 9 10
 
+### cmp
+```cpp
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+bool cmp(int x,int y){
+    return x>y;
+}
+int main()
+{
+    vector <int> v;
+    for(int i=0;i<10;i++)
+    {
+        v.push_back(10-i);
+    }
+    for(auto p=v.begin();p!=v.end();p++){
+        cout<<*p<<" ";
+    }cout<<endl;
+    sort(v.begin(),v.end(),cmp);
+    for(auto p=v.begin();p!=v.end();p++){
+        cout<<*p<<" ";
+    }cout<<endl;
 
+    return 0;
+} 
+```
 
+```cpp
+#include<iostream>
+#include<algorithm>
+using namespace std;
+struct stu
+{
+    string name;
+    int age;
+};
+bool cmp(stu a,stu b){
+    if(a.age!=b.age)
+        return a.age<b.age;//年龄不同就按年龄从小到大排序
+    else
+        return a.name<b.name;//年龄相同就按名字的ascII表排序
+}
+int main()
+{
+    stu s[3];
+    for(int i=0;i<3;i++){
+        cin>>s[i].name>>s[i].age;
+    }   
+    sort(s,s+3,cmp);
+    for(int i=0;i<3;i++){
+        cout<<s[i].name<<" "<<s[i].age<<endl;
+    }
+    return 0;
+} 
+```
+>input
+>>ttia 6
+ttaa 6
+ttab 6
+>output
+>>ttaa 6
+ttab 6
+ttia 6
 
+## cctype
+```cpp
+#include<iostream>
+#include<cctype>
+using namespace std;
+int main()
+{
+    int c='A';
+    cout<<"isalpha:"<<isalpha(c)<<endl;//是否字母
+    cout<<"islower:"<<islower(c)<<endl;//是否小写
+    cout<<"isupper:"<<isupper(c)<<endl;//是否大写
+    cout<<"isalnum:"<<isalnum(c)<<endl;//是否字母or数字
+    cout<<"isspace:"<<isspace(c)<<endl;//是否SPACE,\n.\t,\r
+    cout<<(char)tolower(c)<<endl;
+    cout<<(char)toupper(c)<<endl;
+    return 0;
+}
+```
 
+**int tolower(int _C)**
+**tolower的参数和返回值都是int类型**
+**char类型如果是无符号的话，就无法存入负数，不能兼容EOF(通常是负的整数常量)**
+**其中返回值是该字母小写形式对应的字符编码(如ascII表)**
 
+## [for] like py
+```cpp
+#include<iostream>
+#include<vector>
+using namespace std;
+int main()
+{
+    int a[5]={1};
+    for(int &i:a){
+        i++;
+        cout<<i<<" ";
+    }cout<<endl;
 
+    for(int i:a){
+        i*=2;
+        cout<<i<<" ";
+    }cout<<endl;
 
-
-
-
+    vector <int> b(10,2);
+    for(int j:b){
+        j++;
+        cout<<j<<" ";
+    }cout<<endl;
+    return 0;
+}
+```
+>output:
+>>2 1 1 1 1
+4 2 2 2 2
+3 3 3 3 3 3 3 3 3 3
 

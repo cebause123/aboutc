@@ -75,7 +75,7 @@ n/N next one or the last one
 - %:当前文件名
 - .
 - :
-  
+
 **"{register}+operator**
 "ayy
 "bdiw
@@ -89,6 +89,7 @@ n/N next one or the last one
 - q:end
 - @{register}:going again
 - @@:again
+`入乡随俗，no [pg up][Home],use lkjh to move cursor`
 `not using '.',using 'u'or 'ctrl+r' is available`
 **`count for effiency`**
 
