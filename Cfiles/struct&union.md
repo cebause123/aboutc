@@ -27,7 +27,7 @@ int main()
 struct abc {
     int a;
     char b;
-}__attribute__((packed))//不用对齐
+}__attribute__((packed))//不用对齐(指的是上九行)
 
 ```
 在函数里面调用struct结构体
@@ -38,10 +38,10 @@ struct abc {
     int b;
     int c;
 };
-int func(struct abc *p,int b[])
+int func(struct abc *p,int arr[])
 {
     printf("%d %d %d\n",p->a,p->b,(*p).c);
-    printf("%d %d\n",b[0],b[1]);
+    printf("%d %d\n",arr[0],arr[1]);
     return 0;
 }
 int main()
@@ -53,10 +53,45 @@ int main()
         .b=2,
         .c=3
     };
-    int b[2]={4,5};
+    int arr[2]={4,5};
     ret =func(&c,b);
     return 0;
  }
+```
+
+
+```c
+#include<stdio.h>
+#include<string.h>
+struct person{
+    char name[12];
+    int age;
+    void(*get_name_func)(struct person *p,char *mingzi);//no define function in struct,定义函数指针
+    void(*get_age_func)(struct person *p,int *nianling);
+};
+    void get_name(struct person *p,char *mingzi)
+    {
+        strcpy(mingzi,p->name);
+    }
+    void get_age(struct person *p,int *nianling)
+    {
+        *nianling=p->age;
+    }
+    struct person p1={
+        .name="cebause",
+        .age=19,
+        .get_name_func=get_name,
+        .get_age_func=get_age
+    };
+int main(){
+    char name[12]={0};
+    int age=0;
+    struct person *p=&p1;
+    p->get_name_func(p,name);
+    p->get_age_func(p,&age);
+    printf("%s:%d\n",name,age);
+    return 0;
+}
 ```
 
 ## union联合体

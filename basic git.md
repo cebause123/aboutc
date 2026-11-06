@@ -147,3 +147,6 @@ git clone +address
 
 2026/09/09
 20:39:06 | modifyied in vscode
+
+2026/11/05
+15:20:36 | clone a jpynb repositary with accelerator is ok
