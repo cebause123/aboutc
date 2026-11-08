@@ -1,9 +1,21 @@
 # Basic Git Commands
 ## 一、root
-alias git-log="..."定义快捷片段
->git-log : git log --pretty=oneline --all --graph --abbrev-commit
+>git config --global alias.st status
+>>git status==git st
 
->git status
+>git config --global alias.lg "log --pretty=oneline --all --graph --abbrev-commit"
+>>git lg
+
+>alias git-log="..."定义快捷片段的另一种形式
+git-log : git log --pretty=oneline --all --graph --abbrev-commit
+
+>git config (--global) --get-regexp alias
+>>alias.st status
+alias.lg log --pretty=oneline --all --graph --abbrev-commit
+
+***
+
+`看看记录log日志的定义两个快捷片段中双引号里面有什么不同？`
 ```
 git add .
 git add filename
@@ -64,6 +76,7 @@ develop分支
 feature分支
 hotfix分支改bug
 ***
+==**rebase(变基)从产生分支的节点开始，将目前所在的分支rebase到命令git rebase后面的分支上**==
 ![rebase](image.png)
 ***
 ### 5.ignore
@@ -88,6 +101,13 @@ else:
 ***
 
 ### 6.概论
+~(家目录) in Windows->/C:/User/用户名
+/(根目录) in Windows->/
+in lunix <mark>Home and '\' </mark>
+>cat ~/.gitconfig
+家目录放了一些以.开头的文件
+
+
 cd ..        向上一级
 cd 文件名    向下一级
 pwd
@@ -120,7 +140,7 @@ git remote
 得origin
 推送到远程仓库
                 checked
-git push origin -u(--set-upstream)master：master
+>git push origin -u(--set-upstream)master：master
  /master本地到远程的名字相同
 git push [-f(force)]
 
@@ -150,3 +170,6 @@ git clone +address
 
 2026/11/05
 15:20:36 | clone a jpynb repositary with accelerator is ok
+
+2026/11/07
+16:43:52 | either push or clone is proved that an accelerator is needed.
