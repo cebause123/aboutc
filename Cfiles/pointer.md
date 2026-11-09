@@ -164,7 +164,7 @@ int lac[4][2];
 |*|存储在lac[0][0]的值|*(&lac[0])=lac[0]=&lac[0][0]，lac[0][0]的地址 |
 
 <mark>classic example</mark>
-**p指针指向一个包含4个int的数组的地址，就是等于号后面的arr=&arr[0]**
+**p指针指向一个(包含4个int类型数据)的数组的地址，就是等于号后面的arr=&arr[0]**
 
 ```c
 #include<stdio.h>

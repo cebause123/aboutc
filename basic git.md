@@ -101,9 +101,9 @@ else:
 ***
 
 ### 6.概论
-~(家目录) in Windows->/C:/User/用户名
-/(根目录) in Windows->/
-in lunix <mark>Home and '\' </mark>
+~ (家目录) in Windows->\C:\User\用户名
+\ (根目录) in Windows->/
+in linux <mark>家目录是 /home/cebause(我的用户名); 根目录是 '/' </mark>
 >cat ~/.gitconfig
 家目录放了一些以.开头的文件
 
@@ -140,8 +140,8 @@ git remote
 得origin
 推送到远程仓库
                 checked
->git push origin -u(--set-upstream)master：master
- /master本地到远程的名字相同
+>git push origin -u(--set-upstream)master：main
+ /master本地名字,main远程仓库的名字
 git push [-f(force)]
 
 

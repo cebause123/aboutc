@@ -50,12 +50,12 @@ gdb ./test
 
 
 `gcc -o test test.c -v`
-`gcc -o 1.i test.c -E`(pre compile)**grammar error can't be detected in this stage**
+`gcc -o 1.i test.c -E`(pre process)**grammar error can't be detected in this stage**
 `gcc -o 1.s test.c -S`(just till disass)
 `gcc -o 1.o test.c/1.s -c`
 `gcc -o test test.c`(the plain one:just to link)
 ```
-pre compile generate .i file(replace macro)
+pre process generate .i file(replace macro)
 compile .c file to generate .s file disass
 generate .s file ==disass== to generate .o file
 link to a executive file called test
