@@ -1,3 +1,5 @@
+# <span style="color:green">用极少的按键，完成几乎所有操作，解放鼠标</span>
+
 # vim
 
 ## 1.skip

@@ -101,12 +101,20 @@ else:
 ***
 
 ### 6.概论
+#### basic(bash&linux)
 ~ (家目录) in Windows->\C:\User\用户名
 \ (根目录) in Windows->/
 in linux <mark>家目录是 /home/cebause(我的用户名); 根目录是 '/' </mark>
 >cat ~/.gitconfig
 家目录放了一些以.开头的文件
-
+##### keyboard shortcuts
+- ctrl+a ctrl+e移动到行首行尾
+- ctrl+w删前面的一个词
+- ctrl+u ctrl+y先将当前输入的命令存入,需要的时候再取回
+- ctrl+r 搜索历史命令
+- !! 代表上一个命令
+- Alt+. 代表上一个命令的最后一个参数
+- cd+- 转到上一个目录,使用场景是同时在两个目录下工作时,在两个目录间切换
 
 cd ..        向上一级
 cd 文件名    向下一级
